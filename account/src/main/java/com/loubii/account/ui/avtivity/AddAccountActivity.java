@@ -192,7 +192,7 @@ public class AddAccountActivity extends BaseActivity {
             }
         });
     }
-    //tt 
+    //tt 存储支出或者收入账单
     private void saveData(float result) {
         AccountModel accountModel = new AccountModel();
         accountModel.setCount(result);
