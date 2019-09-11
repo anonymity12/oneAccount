@@ -1,5 +1,9 @@
 # OneAccount
 一款简约风格的记账app
+# tttodo 
+
+使用并修正一些数据显示bug
+
 ## Preview
 <img src="https://github.com/LouBii/OneAccount/blob/master/pic/gif1.gif" width="270"/> <img src="https://github.com/LouBii/OneAccount/blob/master/pic/gif2.gif" width="270"/> <img src="https://github.com/LouBii/OneAccount/blob/master/pic/gif3.gif" width="270"/>
 ## Screenshots
