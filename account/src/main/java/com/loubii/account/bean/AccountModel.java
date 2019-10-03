@@ -7,6 +7,7 @@ import org.greenrobot.greendao.annotation.Id;
 import java.util.Date;
 
 /**
+ * 每一笔款项 的数据结构 model
  * @author luo
  * @date 2017/10/23
  */

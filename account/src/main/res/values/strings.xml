@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">钱小猪</string>
     <string name="tab_name_bill">账单</string>
     <string name="tab_name_chart">图表</string>
     <string name="tab_name_add">记账</string>
@@ -89,4 +88,5 @@
     <string name="finish">完成</string>
     <string name="rv_empty_no_bill">无账单记录</string>
     <string name="text_bill_empty">您的账单之旅还没开始\n暂无数据~</string>
+    <string name="app_name">郑氏理财</string>
 </resources>

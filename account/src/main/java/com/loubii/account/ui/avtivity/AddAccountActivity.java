@@ -133,7 +133,7 @@ public class AddAccountActivity extends BaseActivity {
         timePickerPosArr[1] = TimeUtil.getNowDateHour();
         timePickerPosArr[2] = TimeUtil.getNowDateMinute();
     }
-
+    //tt 加载布局文件
     @Override
     protected int getLayoutId() {
         return R.layout.activity_add_account;
@@ -143,13 +143,13 @@ public class AddAccountActivity extends BaseActivity {
     protected void initView() {
         mLlTitleContract.setVisibility(View.VISIBLE);
         setListener();
-        setRecycleData(Extra.ACCOUNT_TYPE_EXPEND);
+        setRecycleData(Extra.ACCOUNT_TYPE_EXPEND);//tt 默认是花费的选项
         initPagerWithGridView(INIT);
         initKeyboard();
         //注册事件
         EventBus.getDefault().register(this);
     }
-
+    //tt 为radio group 添加变动监听，是收入呢？还是支出
     private void setListener() {
         mRgType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -173,6 +173,7 @@ public class AddAccountActivity extends BaseActivity {
     }
 
     private void initKeyboard() {
+        //tt 这个key util 应该是自定义了 keyboard layout
         mKeyboardUtil = new KeyboardUtil(AddAccountActivity.this, AddAccountActivity.this, mEtCount);
         mKeyboardUtil.showKeyboard();
         mEtCount.setInputType(InputType.TYPE_NULL);
@@ -247,7 +248,7 @@ public class AddAccountActivity extends BaseActivity {
             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    //点击自定义跳转拖拽
+                    //点击自定义跳转拖拽，最后一个 grid item
                     if (page == mPageCount - 1 && position == (finalGridList.size() - page * PAGE_SIZE - 1)) {
                         Intent intent = new Intent(AddAccountActivity.this, AddSortActivity.class);
                         intent.putExtra(Extra.ACCOUNT_TYPE, mOutInType);
@@ -402,6 +403,7 @@ public class AddAccountActivity extends BaseActivity {
 
     private void showTimePicker() {
         setOptionData();
+        //tt 通过一个  OptionsPickerView   来设定我们期望的时间
         mPvOptions = new OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -465,8 +467,9 @@ public class AddAccountActivity extends BaseActivity {
             for (int i = -15; i < 15; i++) {
                 if (i == 0) {
                     mDayList.add("今天");
-                } else
+                } else {
                     mDayList.add(TimeUtil.getLastDateStr(i)); //字符串
+                }
                 mDateList.add(TimeUtil.getLastDate(i)); //date日期
             }
             //小时

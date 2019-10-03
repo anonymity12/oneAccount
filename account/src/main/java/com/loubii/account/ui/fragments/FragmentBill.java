@@ -143,7 +143,7 @@ public class FragmentBill extends BaseEventFragment {
         mTvExpendDescribe.setText(mCurrentDate.getMonth() + 1 + "月支出");
         mTvIncomeDescribe.setText(mCurrentDate.getMonth() + 1 + "月收入");
         mTvBudgetMonthDescribe.setText(mCurrentDate.getMonth() + 1 + "月预算");
-        if (mAccountList.size() > 0) {
+        if (mAccountList.size() > 0) {/*tt 把每一个account款项加载出来，现在限制是20个，不知道作者怎么限制这么低*/
             float sumExpend = 0f;
             float sumIncome = 0f;
             for (AccountModel accountModel : mAccountList) {
@@ -229,7 +229,7 @@ public class FragmentBill extends BaseEventFragment {
         List<AccountModel> accountList = mDbManager.queryBuilder()
                 .where(AccountModelDao.Properties.Time.between
                         (TimeUtil.getFirstDayOfMonth(currentDate), TimeUtil.getEndDayOfMonth(currentDate)))
-                .orderAsc(AccountModelDao.Properties.Time)
+                .orderAsc(AccountModelDao.Properties.Time) /*tt 1003 你可以使用新的： orderDesc（）*/
                 .offset(offSet * Config.LIST_LOAD_NUM)
                 .limit(Config.LIST_LOAD_NUM)
                 .list();

@@ -6,5 +6,5 @@ package com.loubii.account.constants;
  */
 public class Config {
     /** listview默认每页加载条数 */
-    public static final int LIST_LOAD_NUM = 20;
+    public static final int LIST_LOAD_NUM = 100;
 }
