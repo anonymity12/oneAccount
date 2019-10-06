@@ -6,7 +6,7 @@
 
 fixed 日历月份改变，账单数据不变的bug
 
-![](./img/changeMonthOk.gif)
+![](./pic/changeMonthOk.gif)
 
 - [x] 使用并修正一些数据显示bug
 
