@@ -1,8 +1,14 @@
 # OneAccount
 一款简约风格的记账app
-# tttodo 
+# tttodo
 
-使用并修正一些数据显示bug
+- [x] 修正日历，两个月显示同样账单的bug
+
+fixed 日历月份改变，账单数据不变的bug
+
+![](./img/changeMonthOk.gif)
+
+- [x] 使用并修正一些数据显示bug
 
 ## Preview
 <img src="https://github.com/LouBii/OneAccount/blob/master/pic/gif1.gif" width="270"/> <img src="https://github.com/LouBii/OneAccount/blob/master/pic/gif2.gif" width="270"/> <img src="https://github.com/LouBii/OneAccount/blob/master/pic/gif3.gif" width="270"/>

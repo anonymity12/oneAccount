@@ -5,6 +5,9 @@ import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
 
 
+/*
+* 装载 今天选中 的绿色 deco，这是deco1 ， 还有deco2 ： CountDecorator.java
+* */
 public class TodayDecorator implements DayViewDecorator {
     @Override
     public boolean shouldDecorate(CalendarDay day) {

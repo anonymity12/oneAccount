@@ -8,7 +8,7 @@ import com.loubii.account.util.Logger;
 import java.util.List;
 
 /**
- *
+ * 装载 deco2： 每天的账单数据
  */
 public class CountDecorator implements DayViewDecorator {
     private List<CountBean> countList;

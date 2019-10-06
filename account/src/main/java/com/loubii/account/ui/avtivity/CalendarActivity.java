@@ -80,7 +80,7 @@ public class CalendarActivity extends BaseActivity {
 
         mCountDecorator = new CountDecorator(getCurrentMonthData());
         mCalendarView.addDecorators(new TodayDecorator(),
-                mCountDecorator);
+                mCountDecorator);//btt1
         mCalendarView.setOnMonthChangedListener(new OnMonthChangedListener() {
             @Override
             public void onMonthChanged(final MaterialCalendarView widget, CalendarDay date) {
@@ -88,13 +88,15 @@ public class CalendarActivity extends BaseActivity {
 
                 mCalendarView.setSelectedDate(TimeUtil.getDistanceDate(date.getDate(), 15));
                 mSelectDay = date.getDay();
-                getCurrentMonthData();
+                //tt fix 日历月份改变，账单数据不变的bug
+                mCurrentDate = date.getDate();
+                mCountDecorator.setCount(getCurrentMonthData());
                 widget.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         widget.invalidateDecorators();//
                     }
-                }, 500);
+                }, 100);//tt 减少切换月份，等待账单更新的时间
 
             }
         });
@@ -103,14 +105,14 @@ public class CalendarActivity extends BaseActivity {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
                 mSelectDay = date.getDay();
-                getCurrentMonthData();
+                getCurrentMonthData();//tt 获得了本月的数据，但是没有使用呢？
                 initRecyclerView();
                 widget.invalidateDecorators();
                 ToastUtil.showShort(date.getDay() + "");
             }
         });
     }
-
+//tt 这里未启用rv， 怪不得没有看到任何每天的数据。
     private void initRecyclerView() {
 //        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
 //        mRvDayAccount.setLayoutManager(linearLayoutManager);
@@ -129,6 +131,7 @@ public class CalendarActivity extends BaseActivity {
 
         int maxDay = TimeUtil.getDayOfMonth(TimeUtil.getEndDayOfMonth(mCurrentDate));
         //Logger.e(maxDay + "");
+        //tt mFloatList 里存储了从 mAccountList 中拿出来的 ，本月的所有的天数，每天的花费或者收入值。
         mFloatList = getValues(maxDay, mDateStart, mAccountList);
         //Logger.e(mFloatList.size() + "");
 
@@ -167,7 +170,7 @@ public class CalendarActivity extends BaseActivity {
                 for (AccountModel accountModel : accountList) {
                     int day = TimeUtil.getDayOfYear(accountModel.getTime());
                     if (currentDay == day) { //周、月模式同一天的数据累计相加，年为同月数据相加
-                        sumDayCount += accountModel.getCount();
+                        sumDayCount += accountModel.getCount();//tt 无脑加？不论是支出还是收入，都为正数加了起来
                     }
                 }
                 countBean.setCount(sumDayCount);

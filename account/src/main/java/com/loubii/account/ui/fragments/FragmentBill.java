@@ -143,7 +143,7 @@ public class FragmentBill extends BaseEventFragment {
         mTvExpendDescribe.setText(mCurrentDate.getMonth() + 1 + "月支出");
         mTvIncomeDescribe.setText(mCurrentDate.getMonth() + 1 + "月收入");
         mTvBudgetMonthDescribe.setText(mCurrentDate.getMonth() + 1 + "月预算");
-        if (mAccountList.size() > 0) {/*tt 把每一个account款项加载出来，现在限制是20个，不知道作者怎么限制这么低*/
+        if (mAccountList.size() > 0) {/*tt 把每一个account款项加载出来，提取支出和收入的sum，现在限制是20个，不知道作者怎么限制这么低*/
             float sumExpend = 0f;
             float sumIncome = 0f;
             for (AccountModel accountModel : mAccountList) {
@@ -161,7 +161,7 @@ public class FragmentBill extends BaseEventFragment {
             mTvIncome.setText("——");
         }
     }
-
+    //tt 列表
     private void initRecycleView() {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         mUltimateRecyclerView.setLayoutManager(linearLayoutManager);
@@ -169,6 +169,7 @@ public class FragmentBill extends BaseEventFragment {
         mBillAdapter.setOnItemClickListener(new BillAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
+                //tt 跳转到 日历 aty
                 Intent intent = new Intent(context, CalendarActivity.class);
                 intent.putExtra(Extra.ACCOUNT_DATE, mCurrentDate.getTime());
                 getActivity().startActivity(intent);
@@ -176,10 +177,10 @@ public class FragmentBill extends BaseEventFragment {
             }
         });
 
-        //悬浮头部布局需要加入
+        //悬浮头部布局需要加入  tt 每个天的账单，使用同一个stick 的header
         StickyRecyclerHeadersDecoration headersDecor = new StickyRecyclerHeadersDecoration(mBillAdapter);
         mUltimateRecyclerView.addItemDecoration(headersDecor);
-        //设置下拉刷新
+        //设置下拉刷新 tt 下拉刷新的icon 的内层进度条 的颜色， 看起来是蓝色，但是这里的代码显示的是偏黑色。
         mUltimateRecyclerView.setDefaultSwipeToRefreshColorScheme(getResources().getColor(R.color.colorPrimary));
         mUltimateRecyclerView.setDefaultOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -188,6 +189,7 @@ public class FragmentBill extends BaseEventFragment {
                     @Override
                     public void run() {
                         changeList(0);
+                        //tt 数据更新后，也要更新头部的输入和支出sum text
                         setTitleView();
                         ToastUtil.showShort("数据已更新");
                         //linearLayoutManager.scrollToPosition(0);

@@ -207,8 +207,7 @@ public class MaterialCalendarView extends ViewGroup {
     /**
      * 跳转到上月
      */
-    public void setMonthToBack() {
-        pager.setCurrentItem(pager.getCurrentItem() - 1, true);
+    public void setMonthToBack() { pager.setCurrentItem(pager.getCurrentItem() - 1, true);
     }
 
     private final ViewPager.OnPageChangeListener pageChangeListener = new ViewPager.OnPageChangeListener() {

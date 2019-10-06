@@ -8,6 +8,7 @@ import java.util.Date;
 
 /**
  * 每一笔款项 的数据结构 model
+ * 可能是支出，也可能是花费，这个在outIntype 中进行区分
  * @author luo
  * @date 2017/10/23
  */
