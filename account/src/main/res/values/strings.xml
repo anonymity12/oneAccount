@@ -23,8 +23,6 @@
     <string name="sort_long_click">长按排序或删除</string>
 
     <string name="card_my">我的银行卡</string>
-    <string name="add_deposit">添加储蓄卡</string>
-    <string name="add_crediit">添加信用卡</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -59,7 +57,6 @@
         温馨提示\n
         · 单笔提金额为500 - 1000元\n
         · 单笔手续交易费为6‰</string>
-    <string name="all">全部</string>
     <string name="chart_account_total">累计记账</string>
     <string name="chart_account_max">单笔最大金额</string>
     <string name="current_balance">当前余额(元)</string>
@@ -88,5 +85,8 @@
     <string name="finish">完成</string>
     <string name="rv_empty_no_bill">无账单记录</string>
     <string name="text_bill_empty">您的账单之旅还没开始\n暂无数据~</string>
-    <string name="app_name">郑氏理财</string>
+    <string name="app_name">tianFinancing</string>
+    <string name="all">All</string>
+    <string name="add_deposit">Add Deposit</string>
+    <string name="add_crediit">Add Credit</string>
 </resources>
