@@ -129,6 +129,8 @@ public class AddAccountActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        //tt 一个静态的数据库manager，位于
+        // com.loubii.account.db.database;private static DBManager<AccountModel, Long> author;
         mDbManager = DbHelper.getInstance().author();
         timePickerPosArr[0] = 15;
         timePickerPosArr[1] = TimeUtil.getNowDateHour();

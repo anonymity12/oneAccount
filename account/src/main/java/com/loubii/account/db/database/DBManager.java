@@ -19,6 +19,7 @@ import java.util.List;
  */
 
 // TODO: 2019-10-09 MK  是什么意思？
+    //tt model(type: accountModel) 以及key（type: long）
 public abstract class DBManager<M, K> implements IDatabase<M, K> {
 
     @Override
