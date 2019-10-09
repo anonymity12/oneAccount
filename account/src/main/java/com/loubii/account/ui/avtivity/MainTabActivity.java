@@ -19,6 +19,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/*
+* 第一个 页面，启动的页面
+* */
 public class MainTabActivity extends AppCompatActivity implements TabHost.OnTabChangeListener {
 
     @BindView(R.id.tab_content)
@@ -99,6 +102,7 @@ public class MainTabActivity extends AppCompatActivity implements TabHost.OnTabC
         supportInvalidateOptionsMenu();
     }
 
+    //tt 点击加号， 开始添加新的账单
     @OnClick(R.id.iv_add_bill)
     public void onViewClicked() {
         startActivity(new Intent(this, AddAccountActivity.class));

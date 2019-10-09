@@ -15,7 +15,10 @@ import java.util.List;
 /**
  * @Description: 数据库操作管理
  * @date: 2017-01-07 11:32
+ * tt 一种wrapper of getAbstractDao()
  */
+
+// TODO: 2019-10-09 MK  是什么意思？
 public abstract class DBManager<M, K> implements IDatabase<M, K> {
 
     @Override
@@ -40,6 +43,8 @@ public abstract class DBManager<M, K> implements IDatabase<M, K> {
         return true;
     }
 
+    // TODO: 2019-10-09
+    //  tx 是什么意思？
     @Override
     public boolean insertInTx(@NotNull List<M> list) {
         try {

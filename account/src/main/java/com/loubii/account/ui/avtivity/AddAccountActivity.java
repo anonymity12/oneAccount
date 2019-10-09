@@ -55,7 +55,8 @@ import butterknife.OnClick;
 import me.relex.circleindicator.CircleIndicator;
 
 /**
- * 记账
+ * 记账，可以从MainTabAty通过点击 加号， 直接进来
+ * 存储发生处：saveData（）
  */
 public class AddAccountActivity extends BaseActivity {
 
@@ -194,6 +195,9 @@ public class AddAccountActivity extends BaseActivity {
         });
     }
     //tt 存储支出或者收入账单
+    /*
+    * float result: 写入的 收入 或者支出的 金额
+    * */
     private void saveData(float result) {
         AccountModel accountModel = new AccountModel();
         accountModel.setCount(result);
@@ -217,9 +221,10 @@ public class AddAccountActivity extends BaseActivity {
 
         if (!TextUtils.isEmpty(mStrNote))
             accountModel.setNote(mStrNote);
+        //tt 数据存储的接口
         mDbManager.insert(accountModel);
 
-        // TODO: 2017/10/24  发送消息通知fragment UI
+        // TODO: 2017/10/24  发送消息通知fragment UI，现在总是要下滑后才能得到最新的数据
     }
 
     private void initPagerWithGridView(boolean hasChange) {
