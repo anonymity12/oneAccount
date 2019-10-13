@@ -2,6 +2,10 @@ package com.loubii.account.ui.avtivity;
 
 import android.support.v7.app.AppCompatActivity;
 
+/**
+ * tt 并未使用 这个原来的mainAty
+ * */
+
 public class MainActivity extends AppCompatActivity{
 //
 //    @BindView(R.id.lin_content)

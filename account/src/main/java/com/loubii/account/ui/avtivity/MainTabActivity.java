@@ -78,7 +78,7 @@ public class MainTabActivity extends AppCompatActivity implements TabHost.OnTabC
 
             //mTabHost.getTabWidget().getChildAt(i).setOnTouchListener(this);
         }
-
+        //tt 默认设置第一个 0 个: BILL;;位于 com.loubii.account.ui.MainTab;
         mTabHost.setCurrentTab(0);
         mTabHost.setOnTabChangedListener(this);
     }

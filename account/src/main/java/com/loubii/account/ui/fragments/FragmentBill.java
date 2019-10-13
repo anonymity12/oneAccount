@@ -44,8 +44,11 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * 账单
+ * 账单 fragment
+ * tt 读取将从这里发生
  */
+
+// TODO: 2019-10-09  读取将从这里发生 read it
 public class FragmentBill extends BaseEventFragment {
     private static final String ARG_PARAM1 = "param1";
     private static final int CONTRACT_NOT = 0;
@@ -223,6 +226,7 @@ public class FragmentBill extends BaseEventFragment {
 
     /**
      * 分页查询
+     * 数据读取发生在这里
      *
      * @param offSet      设置开始页
      * @param currentDate
@@ -231,13 +235,14 @@ public class FragmentBill extends BaseEventFragment {
         List<AccountModel> accountList = mDbManager.queryBuilder()
                 .where(AccountModelDao.Properties.Time.between
                         (TimeUtil.getFirstDayOfMonth(currentDate), TimeUtil.getEndDayOfMonth(currentDate)))
-                .orderAsc(AccountModelDao.Properties.Time) /*tt 1003 你可以使用新的： orderDesc（）*/
+                .orderDesc(AccountModelDao.Properties.Time) /*tt 1003 你可以使用新的： orderDesc（）*/
                 .offset(offSet * Config.LIST_LOAD_NUM)
-                .limit(Config.LIST_LOAD_NUM)
+                .limit(Config.LIST_LOAD_NUM) //tt LIST_LOAD_NUM  now == 100
                 .list();
         return accountList;
     }
 
+    //tt 点击几个收入支出，预算的按钮，进入新的aty
 
     @OnClick({R.id.ll_title_contract, R.id.tv_title_time, R.id.ll_title_left, R.id.ll_title_right,
             R.id.ll_expend_detail, R.id.ll_income_detail, R.id.tv_budget_month, R.id.tv_budget_month_describe})
